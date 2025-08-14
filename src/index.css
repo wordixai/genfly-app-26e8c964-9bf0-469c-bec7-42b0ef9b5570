@@ -2,17 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Ocean-inspired luxury resort design system */
 @layer base {
   :root {
-   
+    /* Ocean Blues & Coastal Colors */
+    --background: 210 40% 98%;
+    --foreground: 222 84% 4.9%;
+    --card: 210 40% 98%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 210 40% 98%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 213 94% 68%; /* Ocean Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 191 93% 88%; /* Aqua */
+    --secondary-foreground: 213 31% 16%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 180 100% 85%; /* Turquoise */
+    --accent-foreground: 213 31% 16%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 213 94% 68%;
+    --radius: 0.75rem;
+    
+    /* Custom Resort Colors */
+    --ocean-deep: 213 94% 28%;
+    --ocean-mid: 213 94% 68%;
+    --ocean-light: 191 93% 88%;
+    --sand: 35 77% 88%;
+    --coral: 14 80% 75%;
+    --sunset: 25 95% 75%;
+    --seafoam: 180 100% 85%;
+    
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(213 94% 68%) 0%, hsl(191 93% 88%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(25 95% 75%) 0%, hsl(14 80% 75%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213 94% 28%) 0%, hsl(213 94% 68%) 50%, hsl(191 93% 88%) 100%);
   }
 
   .dark {
-
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 213 94% 68%;
+    --primary-foreground: 222 84% 4.9%;
+    --secondary: 213 31% 16%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 213 31% 16%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 213 31% 16%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 213 31% 16%;
+    --input: 213 31% 16%;
+    --ring: 213 94% 68%;
   }
 }
 
@@ -22,6 +71,44 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-outline-ocean {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .section-padding {
+    @apply py-16 px-6 lg:py-24 lg:px-8;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .ocean-gradient {
+    background: var(--gradient-ocean);
+  }
+
+  .sunset-gradient {
+    background: var(--gradient-sunset);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
   }
 }
